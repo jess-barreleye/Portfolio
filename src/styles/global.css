@@ -116,7 +116,22 @@ a:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   padding: 0.5rem 0;
   list-style: none;
-  margin: 0.5rem 0 0;
+  margin: 0;
+}
+
+/* Invisible bridge so the hover state survives moving the mouse into the dropdown */
+.has-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 0.75rem;
+  display: none;
+}
+
+.has-dropdown:hover::after {
+  display: block;
 }
 
 .has-dropdown:hover > .dropdown,
