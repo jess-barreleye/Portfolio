@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import { hobbies } from '../../data/site.js';
 
 const photos = Object.values(
   import.meta.glob('../../assets/photography/*.{png,jpg,jpeg,webp}', { eager: true })
@@ -18,8 +19,9 @@ function toCaption(src) {
     <div class="container">
       <h1>Photography</h1>
       <p>
-        <!-- TODO: add a short intro about your photography -->
-        A personal collection of photos from time at sea and beyond.
+        I rarely go anywhere without my camera. Whether I'm capturing life on the deck during a
+        cruise or exploring a new coastline, I love using photography to share the raw beauty of
+        our oceans and the day-to-day realities of life at sea.
       </p>
     </div>
   </section>
@@ -40,5 +42,17 @@ function toCaption(src) {
         ))}
       </div>
     )}
+  </section>
+
+  <section class="section container">
+    <h2>Other Things I Do</h2>
+    <div class="card-grid">
+      {hobbies.map((hobby) => (
+        <div class="card">
+          <h3>{hobby.title}</h3>
+          <p>{hobby.blurb}</p>
+        </div>
+      ))}
+    </div>
   </section>
 </Layout>

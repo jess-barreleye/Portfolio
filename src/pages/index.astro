@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -8,17 +9,24 @@ const base = import.meta.env.BASE_URL;
   <section class="hero">
     <div class="hero-inner">
       <div>
-        <h1>Jessica Eberle</h1>
-        <p class="tagline">Oceanographer — Supporting Science at Sea</p>
-        <p>
-          <!-- TODO: replace with your own bio -->
-          I support ocean science from the lab to the deck, working across research cruises,
-          shipboard operations, and data visualization to help scientists collect and understand
-          data from the sea.
-        </p>
+        <h1>{site.name}</h1>
+        <p class="tagline">{site.tagline}</p>
+        <p>{site.bio[0]}</p>
         <a class="btn" href={`${base}research/`}>Explore my work</a>
       </div>
       <img class="hero-photo" src={`${base}images/profile.jpeg`} alt="Portrait of Jessica Eberle" />
+    </div>
+  </section>
+
+  <section class="section container">
+    {site.bio.slice(1).map((paragraph) => <p>{paragraph}</p>)}
+    <div class="card-grid" style="margin-top: 1.5rem;">
+      {site.stats.map((stat) => (
+        <div class="card" style="text-align: center;">
+          <h3 style="font-size: 2rem; margin-bottom: 0;">{stat.value}</h3>
+          <p style="margin-top: 0.25rem;">{stat.label}</p>
+        </div>
+      ))}
     </div>
   </section>
 
@@ -40,7 +48,7 @@ const base = import.meta.env.BASE_URL;
       </div>
       <div class="card">
         <h3>Data Visualization</h3>
-        <p>Interactive maps and tools for making shipboard data easier to explore and understand.</p>
+        <p>GIS, 3D digital twins, and data analysis projects from the field and the lab.</p>
         <a class="card-link" href={`${base}data-visualization/`}>View projects →</a>
       </div>
       <div class="card">
@@ -49,5 +57,12 @@ const base = import.meta.env.BASE_URL;
         <a class="card-link" href={`${base}photography/`}>View gallery →</a>
       </div>
     </div>
+  </section>
+
+  <section class="section container">
+    <h2>Let's Connect!</h2>
+    <p class="lead">
+      I'd love to hear from you — reach me at <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+    </p>
   </section>
 </Layout>

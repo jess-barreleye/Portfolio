@@ -26,6 +26,8 @@ const base = import.meta.env.BASE_URL;
 
   <section class="section container">
     {project.body.map((paragraph) => <p>{paragraph}</p>)}
-    <p><a class="btn" href={project.repoUrl} target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
+    {project.link && (
+      <p><a class="btn" href={project.link.url} target="_blank" rel="noopener noreferrer">{project.link.label} →</a></p>
+    )}
   </section>
 </Layout>
