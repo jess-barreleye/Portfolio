@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const photos = Object.values(
+  import.meta.glob('../../assets/photography/*.{png,jpg,jpeg,webp}', { eager: true })
+).map((mod) => mod.default);
+
+function toCaption(src) {
+  const filename = src.src.split('/').pop() ?? '';
+  const name = filename.replace(/\.[^./]+$/, '').replace(/[-_]+/g, ' ');
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
+---
+
+<Layout title="Photography">
+  <section class="page-header">
+    <div class="container">
+      <h1>Photography</h1>
+      <p>
+        <!-- TODO: add a short intro about your photography -->
+        A personal collection of photos from time at sea and beyond.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    {photos.length === 0 ? (
+      <p>
+        No photos yet — add image files to <code>src/assets/photography/</code> in the repository
+        and they'll appear here automatically.
+      </p>
+    ) : (
+      <div class="gallery">
+        {photos.map((photo) => (
+          <figure>
+            <Image src={photo} alt={toCaption(photo)} width={600} height={400} />
+            <figcaption>{toCaption(photo)}</figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+  </section>
+</Layout>

@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { researchTopics } from '../../data/site.js';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Research">
+  <section class="page-header">
+    <div class="container">
+      <h1>Research</h1>
+      <p>
+        <!-- TODO: add an overview of your research interests and publications -->
+        An overview of my research projects, organized by topic.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="card-grid">
+      {researchTopics.map((topic) => (
+        <div class="card">
+          <h3>{topic.title}</h3>
+          <p>{topic.blurb}</p>
+          <a class="card-link" href={`${base}research/${topic.slug}/`}>Read more →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

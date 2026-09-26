@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Jessica Eberle</h1>
+        <p class="tagline">Oceanographer — Supporting Science at Sea</p>
+        <p>
+          <!-- TODO: replace with your own bio -->
+          I support ocean science from the lab to the deck, working across research cruises,
+          shipboard operations, and data visualization to help scientists collect and understand
+          data from the sea.
+        </p>
+        <a class="btn" href={`${base}research/`}>Explore my work</a>
+      </div>
+      <img class="hero-photo" src={`${base}images/profile-placeholder.svg`} alt="Portrait of Jessica Eberle" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>What I do</h2>
+    <p class="lead">
+      A quick overview of the areas I work in — click through for the full story on each.
+    </p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Research</h3>
+        <p>Cephalopod biology, marine microbiology, and other scientific investigations.</p>
+        <a class="card-link" href={`${base}research/`}>View research →</a>
+      </div>
+      <div class="card">
+        <h3>At-Sea Operations</h3>
+        <p>Roles spanning science coordination, science management, marine technology, and research.</p>
+        <a class="card-link" href={`${base}at-sea/`}>View operations →</a>
+      </div>
+      <div class="card">
+        <h3>Data Visualization</h3>
+        <p>Interactive maps and tools for making shipboard data easier to explore and understand.</p>
+        <a class="card-link" href={`${base}data-visualization/`}>View projects →</a>
+      </div>
+      <div class="card">
+        <h3>Photography</h3>
+        <p>A personal collection of photos from time at sea and beyond.</p>
+        <a class="card-link" href={`${base}photography/`}>View gallery →</a>
+      </div>
+    </div>
+  </section>
+</Layout>

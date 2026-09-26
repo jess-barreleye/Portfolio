@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { dataVizProjects } from '../../data/site.js';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Data Visualization">
+  <section class="page-header">
+    <div class="container">
+      <h1>Data Visualization</h1>
+      <p>
+        <!-- TODO: add an overview of your data visualization interests/skills -->
+        Tools and visualizations I've built to make shipboard and research data easier to explore.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="card-grid">
+      {dataVizProjects.map((project) => (
+        <div class="card">
+          <h3>{project.title}</h3>
+          <p>{project.blurb}</p>
+          <a class="card-link" href={`${base}data-visualization/${project.slug}/`}>Read more →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

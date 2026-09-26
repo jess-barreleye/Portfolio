@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { seaRoles } from '../../data/site.js';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="At-Sea Operations">
+  <section class="page-header">
+    <div class="container">
+      <h1>At-Sea Operations</h1>
+      <p>
+        <!-- TODO: add an overview of your time at sea -->
+        An overview of the roles I've held while supporting science operations at sea.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="card-grid">
+      {seaRoles.map((role) => (
+        <div class="card">
+          <h3>{role.title}</h3>
+          <p>{role.blurb}</p>
+          <a class="card-link" href={`${base}at-sea/${role.slug}/`}>Read more →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
