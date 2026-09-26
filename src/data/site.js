@@ -78,6 +78,29 @@ export const seaRoles = [
   },
 ];
 
+export const teachingMentoring = [
+  {
+    slug: 'summer-school',
+    navTitle: 'Summer School',
+    title: 'From Surface to Seafloor: An Introduction to Marine Technology and Science at Sea',
+    blurb: "Proposing, designing, and delivering Stockton University's inaugural marine science and technology summer school.",
+    body: [
+      'One of my proudest achievements was helping propose, design, and deliver the inaugural summer school in marine science and technology at the Stockton University Marine Field Station.',
+      'The project began with a proposal I co-authored to secure the funding and resources needed to launch the program. Following its approval, I worked with the Marine Field Station staff to develop an interdisciplinary Ocean STEAM curriculum that combined classroom learning with hands-on field experience.',
+      'Aboard R/V Petrel, we mentored undergraduate students as they developed practical field skills, integrated marine technology with biological and geological sampling, and learned to work safely and confidently in a shipboard environment. Watching students apply classroom concepts to real-world at-sea operations — and grow in confidence throughout the course — was one of the most rewarding parts of the experience.',
+    ],
+  },
+  {
+    slug: 'peerside',
+    navTitle: 'Peerside',
+    title: 'Peerside',
+    blurb: 'Mentoring students entering ocean STEAM fields.',
+    body: [
+      'In 2025, I joined the Peerside program as a mentor, working to help broaden access and equity for students entering the fields of ocean Science, Technology, Engineering, Arts, and Mathematics (Ocean STEAM).',
+    ],
+  },
+];
+
 export const dataVizProjects = [
   {
     slug: 'gis-site-selection',
@@ -144,7 +167,7 @@ export const hobbies = [
   },
   {
     title: 'Community Impact',
-    blurb: 'I joined nonprofits in Mexico (ECOBAC / Proyecto Manta), working side-by-side with local community members to monitor and protect whale and manta ray populations in Bahía Banderas. In 2025, I joined the Peerside program as a mentor, helping broaden access and equity for students entering ocean STEAM fields.',
+    blurb: 'I joined nonprofits in Mexico (ECOBAC / Proyecto Manta), working side-by-side with local community members to monitor and protect whale and manta ray populations in Bahía Banderas.',
   },
   {
     title: 'Volunteer Naturalist',

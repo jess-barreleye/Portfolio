@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { teachingMentoring } from '../../data/site.js';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Teaching & Mentoring">
+  <section class="page-header">
+    <div class="container">
+      <h1>Teaching &amp; Mentoring</h1>
+      <p>
+        An overview of the programs I've supported to help students and mentees build skills and
+        confidence in ocean science and technology.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="card-grid">
+      {teachingMentoring.map((item) => (
+        <div class="card">
+          <h3>{item.navTitle}</h3>
+          <p>{item.blurb}</p>
+          <a class="card-link" href={`${base}teaching/${item.slug}/`}>Read more →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
