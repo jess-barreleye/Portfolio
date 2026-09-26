@@ -10,6 +10,7 @@ const base = import.meta.env.BASE_URL;
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <ul class="nav-links" id="nav-links">
       <li><a href={base}>Home</a></li>
+      <li><a href={`${base}about/`}>About</a></li>
       <li class="has-dropdown">
         <a href={`${base}research/`}>Research ▾</a>
         <ul class="dropdown">
