@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../components/Gallery.astro';
 import { teachingMentoring } from '../../data/site.js';
 
 export function getStaticPaths() {
@@ -9,8 +10,13 @@ export function getStaticPaths() {
   }));
 }
 
+const allImages = import.meta.glob('../../assets/media/teaching/**/*.{jpg,jpeg,png}', { eager: true });
+
 const { item } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const images = Object.entries(allImages)
+  .filter(([path]) => path.includes(`/teaching/${item.slug}/`))
+  .map(([, mod]) => mod.default);
 ---
 
 <Layout title={item.navTitle}>
@@ -26,5 +32,6 @@ const base = import.meta.env.BASE_URL;
 
   <section class="section container">
     {item.body.map((paragraph) => <p>{paragraph}</p>)}
+    <Gallery images={images} />
   </section>
 </Layout>

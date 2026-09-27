@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../components/Gallery.astro';
 import { seaRoles } from '../../data/site.js';
 
 export function getStaticPaths() {
@@ -9,8 +10,13 @@ export function getStaticPaths() {
   }));
 }
 
+const allImages = import.meta.glob('../../assets/media/at-sea/**/*.{jpg,jpeg,png}', { eager: true });
+
 const { role } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const images = Object.entries(allImages)
+  .filter(([path]) => path.includes(`/at-sea/${role.slug}/`))
+  .map(([, mod]) => mod.default);
 ---
 
 <Layout title={role.title}>
@@ -24,5 +30,6 @@ const base = import.meta.env.BASE_URL;
 
   <section class="section container">
     {role.body.map((paragraph) => <p>{paragraph}</p>)}
+    <Gallery images={images} />
   </section>
 </Layout>

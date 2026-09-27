@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import { site } from '../data/site.js';
+import gumbySuitPhoto from '../assets/media/about/testing-gumby-suit-mbari-western-flyer.jpg';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -15,7 +17,14 @@ const base = import.meta.env.BASE_URL;
 
   <section class="section container">
     {site.bio.map((paragraph) => <p>{paragraph}</p>)}
-    <div class="card-grid" style="margin-top: 1.5rem;">
+    <Image
+      src={gumbySuitPhoto}
+      alt="Testing a Gumby Suit aboard MBARI's R/V Western Flyer"
+      width={900}
+      height={600}
+      style="border-radius: var(--radius); margin: 1.5rem 0;"
+    />
+    <div class="card-grid">
       {site.stats.map((stat) => (
         <div class="card" style="text-align: center;">
           <h3 style="font-size: 2rem; margin-bottom: 0;">{stat.value}</h3>
