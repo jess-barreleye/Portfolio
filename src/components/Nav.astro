@@ -1,5 +1,5 @@
 ---
-import { researchTopics, seaRoles, teachingMentoring } from '../data/site.js';
+import { researchTopics, seaRoles, teachingMentoring, dataVizProjects } from '../data/site.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -38,7 +38,15 @@ const base = import.meta.env.BASE_URL;
           ))}
         </ul>
       </li>
-      <li><a href={`${base}data-visualization/`}>Data Visualization</a></li>
+      <li class="has-dropdown">
+        <a href={`${base}data-visualization/`}>Data Visualization ▾</a>
+        <ul class="dropdown">
+          <li><a href={`${base}data-visualization/`}>Overview</a></li>
+          {dataVizProjects.map((project) => (
+            <li><a href={`${base}data-visualization/${project.slug}/`}>{project.title}</a></li>
+          ))}
+        </ul>
+      </li>
       <li><a href={`${base}photography/`}>Photography</a></li>
     </ul>
   </nav>
