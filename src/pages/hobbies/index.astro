@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { hobbies } from '../../data/site.js';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Hobbies">
+  <section class="page-header">
+    <div class="container">
+      <h1>Hobbies</h1>
+      <p>
+        Life outside the lab and the ship — photography, sailing, diving, and giving back to the
+        ocean communities I care about.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="card-grid">
+      {hobbies.map((hobby) => (
+        <div class="card">
+          <h3>{hobby.title}</h3>
+          <p>{hobby.blurb}</p>
+          <a class="card-link" href={`${base}hobbies/${hobby.slug}/`}>Read more →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

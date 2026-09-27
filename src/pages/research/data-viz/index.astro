@@ -1,6 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { dataVizProjects } from '../../data/site.js';
+import Layout from '../../../layouts/Layout.astro';
+import { dataVizProjects } from '../../../data/site.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -8,9 +8,9 @@ const base = import.meta.env.BASE_URL;
 <Layout title="Data Visualization">
   <section class="page-header">
     <div class="container">
+      <p class="breadcrumb" style="margin-top:0;"><a href={`${base}research/`}>Research</a> / Data Visualization</p>
       <h1>Data Visualization</h1>
       <p>
-        <!-- TODO: add an overview of your data visualization interests/skills -->
         Tools and visualizations I've built to make shipboard and research data easier to explore.
       </p>
     </div>
@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL;
         <div class="card">
           <h3>{project.title}</h3>
           <p>{project.blurb}</p>
-          <a class="card-link" href={`${base}data-visualization/${project.slug}/`}>Read more →</a>
+          <a class="card-link" href={`${base}research/data-viz/${project.slug}/`}>Read more →</a>
         </div>
       ))}
     </div>

@@ -1,25 +1,24 @@
 ---
 import { Image } from 'astro:assets';
 
+interface GalleryImage {
+  image: ImageMetadata;
+  caption: string;
+}
+
 interface Props {
-  images: ImageMetadata[];
+  images: GalleryImage[];
 }
 
 const { images } = Astro.props;
-
-function toCaption(src: string) {
-  const filename = src.split('/').pop() ?? '';
-  const name = filename.replace(/\.[^./]+$/, '').replace(/[-_]+/g, ' ');
-  return name.charAt(0).toUpperCase() + name.slice(1);
-}
 ---
 
 {images.length > 0 && (
   <div class="gallery">
-    {images.map((image) => (
+    {images.map(({ image, caption }) => (
       <figure>
-        <Image src={image} alt={toCaption(image.src)} width={600} height={400} />
-        <figcaption>{toCaption(image.src)}</figcaption>
+        <Image src={image} alt={caption} width={600} height={400} />
+        <figcaption>{caption}</figcaption>
       </figure>
     ))}
   </div>

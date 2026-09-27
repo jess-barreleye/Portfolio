@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL;
         <p class="tagline">{site.tagline}</p>
         <p>{site.bio[0]}</p>
         <a class="btn" href={`${base}about/`}>About me</a>
-        <a class="btn" href={`${base}research/`} style="margin-left: 0.75rem;">Explore my work</a>
+        <a class="btn btn-outline" href={`${base}research/`} style="margin-left: 0.75rem;">Explore my work</a>
       </div>
       <img class="hero-photo" src={`${base}images/profile.jpeg`} alt="Portrait of Jessica Eberle" />
     </div>
@@ -27,7 +27,7 @@ const base = import.meta.env.BASE_URL;
     <div class="card-grid">
       <div class="card">
         <h3>Research</h3>
-        <p>Cephalopod biology, marine microbiology, and other scientific investigations.</p>
+        <p>Cephalopod biology, marine microbiology, and data visualization projects.</p>
         <a class="card-link" href={`${base}research/`}>View research →</a>
       </div>
       <div class="card">
@@ -41,22 +41,19 @@ const base = import.meta.env.BASE_URL;
         <a class="card-link" href={`${base}teaching/`}>View programs →</a>
       </div>
       <div class="card">
-        <h3>Data Visualization</h3>
-        <p>GIS, 3D digital twins, and data analysis projects from the field and the lab.</p>
-        <a class="card-link" href={`${base}data-visualization/`}>View projects →</a>
-      </div>
-      <div class="card">
-        <h3>Photography</h3>
-        <p>A personal collection of photos from time at sea and beyond.</p>
-        <a class="card-link" href={`${base}photography/`}>View gallery →</a>
+        <h3>Hobbies</h3>
+        <p>Photography, sailing, diving, and giving back to ocean communities.</p>
+        <a class="card-link" href={`${base}hobbies/`}>View hobbies →</a>
       </div>
     </div>
   </section>
 
-  <section class="section container">
-    <h2>Let's Connect!</h2>
-    <p class="lead">
-      I'd love to hear from you — reach me at <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
-    </p>
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Let's Connect!</h2>
+      <p class="lead">
+        I'd love to hear from you — reach me at <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+      </p>
+    </div>
   </section>
 </Layout>

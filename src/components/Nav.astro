@@ -1,5 +1,5 @@
 ---
-import { researchTopics, seaRoles, teachingMentoring, dataVizProjects } from '../data/site.js';
+import { researchTopics, seaRoles, teachingMentoring, hobbies } from '../data/site.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -18,6 +18,7 @@ const base = import.meta.env.BASE_URL;
           {researchTopics.map((topic) => (
             <li><a href={`${base}research/${topic.slug}/`}>{topic.title}</a></li>
           ))}
+          <li><a href={`${base}research/data-viz/`}>Data Visualization</a></li>
         </ul>
       </li>
       <li class="has-dropdown">
@@ -39,15 +40,14 @@ const base = import.meta.env.BASE_URL;
         </ul>
       </li>
       <li class="has-dropdown">
-        <a href={`${base}data-visualization/`}>Data Visualization ▾</a>
+        <a href={`${base}hobbies/`}>Hobbies ▾</a>
         <ul class="dropdown">
-          <li><a href={`${base}data-visualization/`}>Overview</a></li>
-          {dataVizProjects.map((project) => (
-            <li><a href={`${base}data-visualization/${project.slug}/`}>{project.title}</a></li>
+          <li><a href={`${base}hobbies/`}>Overview</a></li>
+          {hobbies.map((hobby) => (
+            <li><a href={`${base}hobbies/${hobby.slug}/`}>{hobby.title}</a></li>
           ))}
         </ul>
       </li>
-      <li><a href={`${base}photography/`}>Photography</a></li>
     </ul>
   </nav>
 </header>

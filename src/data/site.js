@@ -161,19 +161,43 @@ export const dataVizProjects = [
 
 export const hobbies = [
   {
+    slug: 'photography',
+    title: 'Photography',
+    blurb: 'Capturing life at sea and along the coast.',
+    body: [
+      "I rarely go anywhere without my camera. Whether I'm capturing life on the deck during a cruise or exploring a new coastline, I love using photography to share the raw beauty of our oceans and the day-to-day realities of life at sea.",
+    ],
+  },
+  {
+    slug: 'sailing',
     title: 'Sailing',
-    blurb: 'Together with my partner, I lived and sailed aboard a 42-foot cruising sailboat, completely managing our own floating ecosystem — from mechanical repairs and weather routing to managing supply logistics in remote areas.',
+    blurb: 'Living aboard and sailing a 42-foot cruising sailboat.',
+    body: [
+      'Together with my partner, I lived and sailed aboard a 42-foot cruising sailboat, completely managing our own floating ecosystem — from mechanical repairs and weather routing to managing supply logistics in remote areas.',
+    ],
   },
   {
+    slug: 'diving',
     title: '(Scientific) Diving',
-    blurb: "I'm a European Scientific Diver and Rescue Diver, and also enjoy diving recreationally. My passion for exploring and protecting underwater ecosystems is what originally drove me to study Oceanography.",
+    blurb: 'European Scientific Diver and Rescue Diver.',
+    body: [
+      "I'm a European Scientific Diver and Rescue Diver, and also enjoy diving recreationally. My passion for exploring and protecting underwater ecosystems is what originally drove me to study Oceanography.",
+    ],
   },
   {
+    slug: 'community-impact',
     title: 'Community Impact',
-    blurb: 'I joined nonprofits in Mexico (ECOBAC / Proyecto Manta), working side-by-side with local community members to monitor and protect whale and manta ray populations in Bahía Banderas.',
+    blurb: 'Monitoring whale and manta ray populations with ECOBAC / Proyecto Manta.',
+    body: [
+      'I joined nonprofits in Mexico (ECOBAC / Proyecto Manta), working side-by-side with local community members to monitor and protect whale and manta ray populations in Bahía Banderas.',
+    ],
   },
   {
+    slug: 'volunteer-naturalist',
     title: 'Volunteer Naturalist',
-    blurb: 'I volunteer at the Fitzgerald Marine Reserve in Half Moon Bay, California, sharing my passion for marine ecosystems with visitors from around the world.',
+    blurb: 'Sharing my passion for marine ecosystems at the Fitzgerald Marine Reserve.',
+    body: [
+      'I volunteer at the Fitzgerald Marine Reserve in Half Moon Bay, California, sharing my passion for marine ecosystems with visitors from around the world.',
+    ],
   },
 ];

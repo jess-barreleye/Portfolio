@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../components/Gallery.astro';
+import { hobbies } from '../../data/site.js';
+import { toCaption } from '../../lib/captions.js';
+
+export function getStaticPaths() {
+  return hobbies.map((hobby) => ({
+    params: { slug: hobby.slug },
+    props: { hobby },
+  }));
+}
+
+const { hobby } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const photos = hobby.slug === 'photography'
+  ? Object.entries(
+      import.meta.glob('../../assets/photography/*.{png,jpg,jpeg,webp}', { eager: true })
+    ).map(([path, mod]) => ({ image: mod.default, caption: toCaption(path) }))
+  : [];
+---
+
+<Layout title={hobby.title}>
+  <section class="page-header">
+    <div class="container">
+      <p class="breadcrumb" style="margin-top:0;"><a href={`${base}hobbies/`}>Hobbies</a> / {hobby.title}</p>
+      <h1>{hobby.title}</h1>
+      <p>{hobby.blurb}</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    {hobby.body.map((paragraph) => <p>{paragraph}</p>)}
+    {hobby.slug === 'photography' && (
+      photos.length === 0 ? (
+        <p>
+          No photos yet — add image files to <code>src/assets/photography/</code> in the
+          repository and they'll appear here automatically.
+        </p>
+      ) : (
+        <Gallery images={photos} />
+      )
+    )}
+  </section>
+</Layout>

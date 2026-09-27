@@ -1,13 +1,16 @@
 :root {
-  /* Palette pulled from Jessica's slide deck: deep navy, teal accent, cream background, slate blue */
-  --color-deep: #0b1320;
-  --color-ocean: #415a77;
+  /* Palette pulled from Jessica's slide deck: deep navy background, cream text, teal accent, slate blue */
+  --color-bg: #0b1320;
+  --color-bg-alt: #111f34;
+  --color-card: #15263e;
+  --color-card-hover: #1a2e4a;
   --color-teal: #11caa0;
-  --color-sand: #f3f0df;
-  --color-ink: #10222b;
-  --color-muted: #4a5f68;
+  --color-teal-soft: rgba(17, 202, 160, 0.16);
+  --color-slate: #415a77;
+  --color-text: #f3f0df;
+  --color-muted: #9fb0c3;
   --max-width: 1100px;
-  --radius: 10px;
+  --radius: 14px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
@@ -19,8 +22,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--color-sand);
-  color: var(--color-ink);
+  background: var(--color-bg);
+  color: var(--color-text);
   scroll-behavior: smooth;
 }
 
@@ -46,8 +49,9 @@ a:hover {
 
 /* Header / Nav */
 .site-header {
-  background: var(--color-deep);
-  color: white;
+  background: #080e18;
+  color: var(--color-text);
+  border-bottom: 1px solid rgba(17, 202, 160, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -65,19 +69,20 @@ a:hover {
 .nav-brand {
   font-weight: 700;
   font-size: 1.15rem;
-  color: white;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
 }
 
 .nav-brand:hover {
   text-decoration: none;
-  opacity: 0.85;
+  color: var(--color-teal);
 }
 
 .nav-toggle {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--color-text);
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -96,7 +101,7 @@ a:hover {
 }
 
 .nav-links a {
-  color: white;
+  color: var(--color-text);
   font-weight: 500;
 }
 
@@ -110,11 +115,12 @@ a:hover {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
-  color: var(--color-ink);
+  background: var(--color-card);
+  color: var(--color-text);
   min-width: 220px;
   border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(17, 202, 160, 0.18);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
   padding: 0.5rem 0;
   list-style: none;
   margin: 0;
@@ -143,23 +149,38 @@ a:hover {
 .dropdown li a {
   display: block;
   padding: 0.5rem 1rem;
-  color: var(--color-ink);
+  color: var(--color-text);
   font-weight: 400;
 }
 
 .dropdown li a:hover {
-  background: var(--color-sand);
+  background: var(--color-teal-soft);
+  color: var(--color-teal);
   text-decoration: none;
 }
 
 /* Hero */
 .hero {
-  background: linear-gradient(160deg, var(--color-deep), var(--color-ocean));
-  color: white;
-  padding: 5rem 1.5rem 4rem;
+  position: relative;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-slate) 130%);
+  color: var(--color-text);
+  padding: 6rem 1.5rem 4.5rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(17, 202, 160, 0.28) 0%, rgba(17, 202, 160, 0) 70%);
+  pointer-events: none;
 }
 
 .hero-inner {
+  position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
@@ -169,20 +190,25 @@ a:hover {
 }
 
 .hero h1 {
-  font-size: 2.6rem;
+  font-size: 3rem;
+  line-height: 1.1;
   margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .hero .tagline {
-  font-size: 1.25rem;
-  color: var(--color-sand);
+  font-size: 1.15rem;
+  color: var(--color-teal);
   margin: 0 0 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .hero p {
-  color: #d7e4ea;
-  line-height: 1.6;
+  color: var(--color-muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
 .hero-photo {
@@ -190,23 +216,39 @@ a:hover {
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
-  border: 6px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.08);
+  border: 4px solid rgba(17, 202, 160, 0.35);
+  box-shadow: 0 0 0 10px rgba(17, 202, 160, 0.08), 0 24px 48px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .btn {
   display: inline-block;
   background: var(--color-teal);
-  color: white;
-  padding: 0.65rem 1.4rem;
+  color: var(--color-bg);
+  padding: 0.7rem 1.5rem;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 0.5rem;
+  box-shadow: 0 8px 20px rgba(17, 202, 160, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn:hover {
   text-decoration: none;
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(17, 202, 160, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-teal);
+  border: 2px solid var(--color-teal);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: var(--color-teal-soft);
+  box-shadow: none;
 }
 
 /* Sections */
@@ -214,9 +256,28 @@ a:hover {
   padding: 3.5rem 0;
 }
 
+.section-alt {
+  background: var(--color-bg-alt);
+}
+
 .section h2 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  color: var(--color-text);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.6rem;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 3px;
+  background: var(--color-teal);
+  border-radius: 2px;
 }
 
 .section .lead {
@@ -232,21 +293,24 @@ a:hover {
 }
 
 .card {
-  background: white;
+  background: var(--color-card);
   border-radius: var(--radius);
+  border: 1px solid rgba(17, 202, 160, 0.1);
+  border-left: 3px solid var(--color-teal);
   padding: 1.75rem;
-  box-shadow: 0 2px 10px rgba(11, 43, 64, 0.08);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(11, 43, 64, 0.14);
+  transform: translateY(-4px);
+  background: var(--color-card-hover);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(17, 202, 160, 0.25);
 }
 
 .card h3 {
   margin-top: 0;
-  color: var(--color-deep);
+  color: var(--color-text);
 }
 
 .card p {
@@ -256,6 +320,7 @@ a:hover {
 
 .card a.card-link {
   font-weight: 600;
+  color: var(--color-teal);
 }
 
 /* Breadcrumb */
@@ -265,20 +330,32 @@ a:hover {
   color: var(--color-muted);
 }
 
+.breadcrumb a {
+  color: var(--color-muted);
+  text-decoration: underline;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-teal);
+}
+
 /* Page header (non-hero) */
 .page-header {
-  background: var(--color-ocean);
-  color: white;
-  padding: 3rem 0;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  color: var(--color-text);
+  padding: 3.5rem 0;
+  border-top: 3px solid var(--color-teal);
 }
 
 .page-header h1 {
   margin: 0 0 0.5rem;
+  font-size: 2.2rem;
 }
 
 .page-header p {
-  color: #d7e4ea;
+  color: var(--color-muted);
   max-width: 700px;
+  font-size: 1.05rem;
 }
 
 /* Gallery */
@@ -292,8 +369,9 @@ a:hover {
   margin: 0;
   border-radius: var(--radius);
   overflow: hidden;
-  background: white;
-  box-shadow: 0 2px 10px rgba(11, 43, 64, 0.08);
+  background: var(--color-card);
+  border: 1px solid rgba(17, 202, 160, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
 .gallery img {
@@ -310,8 +388,9 @@ a:hover {
 
 /* Footer */
 .site-footer {
-  background: var(--color-deep);
-  color: #cbd8de;
+  background: #080e18;
+  color: var(--color-muted);
+  border-top: 1px solid rgba(17, 202, 160, 0.15);
   padding: 2rem 0;
   margin-top: 3rem;
   font-size: 0.9rem;
@@ -319,7 +398,7 @@ a:hover {
 }
 
 .site-footer a {
-  color: white;
+  color: var(--color-teal);
 }
 
 @media (max-width: 800px) {
@@ -342,7 +421,7 @@ a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-deep);
+    background: #080e18;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -372,10 +451,10 @@ a:hover {
   }
 
   .dropdown li a {
-    color: white;
+    color: var(--color-text);
   }
 
   .dropdown li a:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(17, 202, 160, 0.12);
   }
 }
