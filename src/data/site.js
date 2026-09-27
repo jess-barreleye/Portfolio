@@ -110,6 +110,7 @@ export const dataVizProjects = [
       'To meet the science objectives of a research expedition, I applied GIS analysis to identify potential methane seep Regions of Interest for ROV dive sites, shared with local collaborators and experts.',
       'I also produced maps — such as the Chilean EEZ near Antofagasta — for local authorities to support sampling permit applications.',
     ],
+    image: 'chilean-eez-map-antofagasta.jpg',
   },
   {
     slug: 'digital-twins',
@@ -124,6 +125,7 @@ export const dataVizProjects = [
     slug: 'data-analysis',
     title: 'Data Analysis',
     blurb: 'Quality control and statistical workflows in R.',
+    image: 'coral-assembly-3500m-monterey-bay.png',
     body: [
       'For research projects, I analyzed environmental datasets by conducting initial quality control, developing R workflows, exploring various analytical methods, and using statistical tests to interpret the data.',
     ],
@@ -132,6 +134,7 @@ export const dataVizProjects = [
     slug: 'ecological-analysis',
     title: 'Ecological Analysis',
     blurb: 'Clustering eDNA samples by community composition.',
+    image: 'edna-hierarchical-clustering-analysis.png',
     body: [
       'Hierarchical analysis of eDNA samples, clustered for similarity in community composition, to help interpret ecological patterns across sampling sites.',
     ],

@@ -1,8 +1,9 @@
 :root {
-  --color-deep: #0b2b40;
-  --color-ocean: #114b6b;
-  --color-teal: #1e8f8c;
-  --color-sand: #f4efe6;
+  /* Palette pulled from Jessica's slide deck: deep navy, teal accent, cream background, slate blue */
+  --color-deep: #0b1320;
+  --color-ocean: #415a77;
+  --color-teal: #11caa0;
+  --color-sand: #f3f0df;
   --color-ink: #10222b;
   --color-muted: #4a5f68;
   --max-width: 1100px;

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import { dataVizProjects } from '../../data/site.js';
 
 export function getStaticPaths() {
@@ -9,8 +10,11 @@ export function getStaticPaths() {
   }));
 }
 
+const images = import.meta.glob('../../assets/data-viz/*.{png,jpg,jpeg}', { eager: true });
+
 const { project } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const image = project.image ? images[`../../assets/data-viz/${project.image}`]?.default : null;
 ---
 
 <Layout title={project.title}>
@@ -25,6 +29,9 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <section class="section container">
+    {image && (
+      <Image src={image} alt={project.title} width={900} height={600} style="border-radius: var(--radius); margin-bottom: 1.5rem;" />
+    )}
     {project.body.map((paragraph) => <p>{paragraph}</p>)}
     {project.link && (
       <p><a class="btn" href={project.link.url} target="_blank" rel="noopener noreferrer">{project.link.label} →</a></p>
